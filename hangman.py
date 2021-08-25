@@ -8,7 +8,13 @@ hit = False
 hanged = False
 errors = 0
 
-print(correct_letters)
+def print_list(list_to_print):
+    word = ''
+    for letter in list_to_print:
+        word = word + ' ' + letter
+    print(word)
+
+print_list(correct_letters)
 while (not hit and not hanged):
     guess = input('Letter? ')
 
@@ -24,8 +30,8 @@ while (not hit and not hanged):
         
     hanged = errors == 6
     hit = '_' not in correct_letters
-    
-    print(correct_letters)
+
+    print_list(correct_letters)
 
 if (hit):
     print('You win!')
@@ -33,3 +39,4 @@ else:
     print('You loose!')
 
 print('Game Over')
+
