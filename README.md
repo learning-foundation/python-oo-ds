@@ -6,3 +6,7 @@ Python Object Orientation and Data Structure
 hangman.py
 
 - using list [] to control correct letters
+
+list.py
+
+- a couple of exercises with list
