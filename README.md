@@ -1,5 +1,5 @@
 # python-oo-ds
-Python Object Orientation and Data Structure
+Python Object Orientation and Data Structure using Python 3
 
 ## Hangman Game 
 
