@@ -1,3 +1,5 @@
+import random
+
 def print_list(list_to_print):
     word = ''
     for letter in list_to_print:
@@ -10,8 +12,19 @@ def play():
     print('***  Welcome to Hangman Game! ***')
     print('*********************************')
 
-    secret_word = 'apple'
-    correct_letters = ['_', '_', '_', '_', '_']
+    file = open('games/words.txt', 'r')
+    words = []
+    for row in file:
+        words.append(row.strip())
+    file.close()
+
+    selected_index = random.randrange(0, len(words))
+    secret_word = words[selected_index]
+
+    correct_letters = []
+    for word in secret_word:
+        correct_letters.append('_')
+
     hit = False
     hanged = False
     errors = 0
@@ -28,6 +41,7 @@ def play():
                     print('I found the letter "{}" in position {}'.format(letter, pos + 1))
                 pos = pos + 1
         else:
+            print('Letter {} not found'.format(guess))
             errors += 1
             
         hanged = errors == 6
