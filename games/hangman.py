@@ -12,11 +12,10 @@ def play():
     print('***  Welcome to Hangman Game! ***')
     print('*********************************')
 
-    file = open('games/words.txt', 'r')
     words = []
-    for row in file:
-        words.append(row.strip())
-    file.close()
+    with open('games/words.txt', 'r') as file:
+        for row in file:
+            words.append(row.strip())
 
     selected_index = random.randrange(0, len(words))
     secret_word = words[selected_index]
