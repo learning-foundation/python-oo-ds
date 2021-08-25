@@ -21,8 +21,15 @@ def test_args_kwargs(arg1, arg2, arg3):
     print('arg2:', arg2)
     print('arg3:', arg3)
 
+def test_kwargs(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+
 args = ('one', 2, 3)
-test_args_kwargs(*args)
+# test_args_kwargs(*args)
 
 kwargs = {'arg3': 3, 'arg2': 'two', 'arg1': 'one'}
-test_args_kwargs(**kwargs)
+# test_args_kwargs(**kwargs)
+
+kwargs = {'arg3': 3, 'arg2': 'two', 'arg1': 'one', 'arg4': 4}
+test_kwargs(**kwargs)
