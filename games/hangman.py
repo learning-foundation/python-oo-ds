@@ -1,17 +1,11 @@
 import random
 
-def print_list(list_to_print):
-    word = ''
-    for letter in list_to_print:
-        word = word + ' ' + letter
-    print(word)
-
-def play():
-
+def start_message():
     print('*********************************')
     print('***  Welcome to Hangman Game! ***')
     print('*********************************')
 
+def get_secret_word():
     words = []
     with open('games/words.txt', 'r') as file:
         for row in file:
@@ -19,26 +13,47 @@ def play():
 
     selected_index = random.randrange(0, len(words))
     secret_word = words[selected_index]
+    return secret_word
 
-    correct_letters = []
-    for word in secret_word:
-        correct_letters.append('_')
+def get_correct_letter(secret_word):
+    return ['_' for word in secret_word]
+
+def print_list(list_to_print):
+    word = ''
+    for letter in list_to_print:
+        word = word + ' ' + letter
+    print(word)
+
+def insert_correct_guess(guess, secret_word, correct_letters):
+    pos = 0
+    for letter in secret_word:
+        if (guess.upper() == letter.upper()):
+            correct_letters[pos] = letter
+            print('I found the letter "{}" in position {}'.format(letter, pos + 1))
+        pos = pos + 1
+
+def end_message(hit):
+    if (hit):
+        print('You win!')
+    else:
+        print('You loose!')
+    print('Game Over')
+
+def play():
+    start_message()
+    secret_word = get_secret_word()
+    correct_letters = get_correct_letter(secret_word)
+    print_list(correct_letters)
 
     hit = False
     hanged = False
     errors = 0
 
-    print_list(correct_letters)
     while (not hit and not hanged):
         guess = input('Letter? ')
 
-        if (guess in secret_word):
-            pos = 0
-            for letter in secret_word:
-                if (guess.upper() == letter.upper()):
-                    correct_letters[pos] = letter
-                    print('I found the letter "{}" in position {}'.format(letter, pos + 1))
-                pos = pos + 1
+        if (guess.upper() in secret_word.upper()):
+            insert_correct_guess(guess, secret_word, correct_letters)
         else:
             print('Letter {} not found'.format(guess))
             errors += 1
@@ -48,9 +63,4 @@ def play():
 
         print_list(correct_letters)
 
-    if (hit):
-        print('You win!')
-    else:
-        print('You loose!')
-
-    print('Game Over')
+    end_message(hit)
