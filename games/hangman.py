@@ -32,12 +32,75 @@ def insert_correct_guess(guess, secret_word, correct_letters):
             print('I found the letter "{}" in position {}'.format(letter, pos + 1))
         pos = pos + 1
 
-def end_message(hit):
+def end_message(hit, secret_word):
     if (hit):
         print('You win!')
+        print("       ___________      ")
+        print("      '._==_==_=_.'     ")
+        print("      .-\\:      /-.    ")
+        print("     | (|:.     |) |    ")
+        print("      '-|:.     |-'     ")
+        print("        \\::.    /      ")
+        print("         '::. .'        ")
+        print("           ) (          ")
+        print("         _.' '._        ")
+        print("        '-------'       ")
     else:
         print('You loose!')
+        print('The word was {}'.format(secret_word))
+        print("    _______________         ")
+        print("   /               \        ")
+        print("  /                 \       ")
+        print("//                   \/\    ")
+        print("\|   XXXX     XXXX   | /    ")
+        print(" |   XXXX     XXXX   |/     ")
+        print(" |   XXX       XXX   |      ")
+        print(" |                   |      ")
+        print(" \__      XXX      __/      ")
+        print("   |\     XXX     /|        ")
+        print("   | |           | |        ")
+        print("   | I I I I I I I |        ")
+        print("   |  I I I I I I  |        ")
+        print("   \_             _/        ")
+        print("     \_         _/          ")
+        print("       \_______/            ")
     print('Game Over')
+
+def print_gallows(errors):
+
+    if (errors == 1):
+        print(' O ')
+        return
+    
+    if (errors == 2):
+        print(' O ')
+        print(' | ')
+        return
+
+    if (errors == 3):
+        print(' O ')
+        print(' | ')
+        print('/  ')
+        return
+
+    if (errors == 4):
+        print(' O ')
+        print(' | ')
+        print('/ \\')
+        return
+
+    if (errors == 5):
+        print(' O ')
+        print('-| ')
+        print('/ \\')
+        return
+
+    if (errors == 6):
+        print(' O ')
+        print('-|-')
+        print('/ \\')
+        return
+
 
 def play():
     start_message()
@@ -57,10 +120,11 @@ def play():
         else:
             print('Letter {} not found'.format(guess))
             errors += 1
+            print_gallows(errors)
             
         hanged = errors == 6
         hit = '_' not in correct_letters
 
         print_list(correct_letters)
 
-    end_message(hit)
+    end_message(hit, secret_word)
