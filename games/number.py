@@ -2,7 +2,7 @@ import random
 
 def start_message():
     print('******************************')
-    print('*    Number Guess Game       *')
+    print('*        Guessing Game       *')
     print('******************************')
 
 def round_message(round_number, total_guess, guess_string):

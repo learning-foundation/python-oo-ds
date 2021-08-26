@@ -5,7 +5,7 @@ print('*********************************')
 print('**********  Game Menu  **********')
 print('*********************************')
 print("1. Hangman")
-print("2. Number")
+print("2. Guessing")
 game = int(input("Choose your game: "))
 
 if game == 1:
