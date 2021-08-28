@@ -11,8 +11,8 @@ account2.deposit(100.0)
 account2.withdraw(50.0)
 account2.transfer_to(account1, 200.0)
 account2.extract()
-account2.history.print()
+account2.get_history().print()
 
-account1.history.print()
+account1.get_history().print()
 
 print('Accounts qtd {}'.format(Account.get_accounts_qtd()))
