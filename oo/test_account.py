@@ -14,3 +14,5 @@ account2.extract()
 account2.history.print()
 
 account1.history.print()
+
+print('Accounts qtd {}'.format(Account.get_accounts_qtd()))

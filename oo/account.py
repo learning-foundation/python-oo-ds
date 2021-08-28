@@ -8,12 +8,19 @@ class Customer:
         self.doc_number = doc_number
 class Account:
 
+    __accounts_qtd = 0
+
     def __init__(self, number, customer, balance, limit=1000.0):
         self.number = number
         self.owner = customer # aggregation (Account have one Customer - Customer exists even if Account doesn't )
         self.balance = balance
         self.limit = limit
-        self.history = History() # composition (Account have History - History exists only if account exists)
+        self.history = History()
+        Account.__accounts_qtd += 1 # composition (Account have History - History exists only if account exists)
+
+    @staticmethod
+    def get_accounts_qtd():
+        return Account.__accounts_qtd
 
     def deposit(self, value):
         self.history.transactions.append("deposit {}".format(value))
