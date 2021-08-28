@@ -8,6 +8,8 @@ class Customer:
         self.doc_number = doc_number
 class Account:
 
+    __slots__ = ['__number', '__owner', '__balance', '_limit', '__history']
+
     __accounts_qtd = 0
 
     def __init__(self, number, customer, balance, limit=1000.0):

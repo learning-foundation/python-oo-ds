@@ -18,6 +18,3 @@ account1.get_history().print()
 print('Accounts qtd {}'.format(Account.get_accounts_qtd()))
 
 account1.limit = 10001.0
-
-account1.new_attr = 10
-print(account1.new_attr)
