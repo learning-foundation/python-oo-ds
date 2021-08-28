@@ -14,7 +14,7 @@ class Account:
         self.__number = number
         self.__owner = customer # aggregation (Account have one Customer - Customer exists even if Account doesn't )
         self.__balance = balance
-        self.__limit = limit
+        self._limit = limit
         self.__history = History()
         Account.__accounts_qtd += 1 # composition (Account have History - History exists only if account exists)
 
@@ -49,6 +49,17 @@ class Account:
 
     def get_history(self):
         return self.__history
+
+    @property
+    def limit(self):
+        return self._limit
+
+    @limit.setter
+    def limit(self, limit):
+        if (limit > 10000.0):
+            print('wrong limit')
+        else:
+            self._limit = limit
 
 class History:
 
