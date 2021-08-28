@@ -8,17 +8,20 @@ class Customer:
         self.doc_number = doc_number
 class Account:
 
-    __slots__ = ['__number', '__owner', '__balance', '_limit', '__history']
+    __slots__ = ['_id', '__number', '__owner', '__balance', '_limit', '__history']
 
     __accounts_qtd = 0
+    __id = 1
 
     def __init__(self, number, customer, balance, limit=1000.0):
+        self._id = Account.__id
         self.__number = number
         self.__owner = customer # aggregation (Account have one Customer - Customer exists even if Account doesn't )
         self.__balance = balance
         self._limit = limit
-        self.__history = History()
-        Account.__accounts_qtd += 1 # composition (Account have History - History exists only if account exists)
+        self.__history = History() # composition (Account have History - History exists only if account exists)
+        Account.__accounts_qtd += 1 
+        Account.__id += 1
 
     @staticmethod
     def get_accounts_qtd():
@@ -62,6 +65,10 @@ class Account:
             print('wrong limit')
         else:
             self._limit = limit
+
+    @property
+    def id(self):
+        return self._id
 
 class History:
 

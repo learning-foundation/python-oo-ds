@@ -18,3 +18,5 @@ account1.get_history().print()
 print('Accounts qtd {}'.format(Account.get_accounts_qtd()))
 
 account1.limit = 10001.0
+print(account1.id)
+print(account2.id)
