@@ -16,4 +16,4 @@ class Manager(Employee):
             return False
 
     def get_bonus(self):
-        return self._salary * 0.15
+        return super().get_bonus() + (self._salary * 0.15)
