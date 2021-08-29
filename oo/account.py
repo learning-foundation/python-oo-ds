@@ -1,11 +1,6 @@
-from datetime import date
+from customer import Customer
+from history import History
 
-class Customer:
-
-    def __init__(self, first_name, last_name, doc_number):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.doc_number = doc_number
 class Account:
 
     __slots__ = ['_id', '__number', '__owner', '__balance', '_limit', '__history']
@@ -69,15 +64,3 @@ class Account:
     @property
     def id(self):
         return self._id
-
-class History:
-
-    def __init__(self):
-        self.open_date = date.today()
-        self.transactions = []
-
-    def print(self):
-        print("open date: {}".format(self.open_date))
-        print("transactions: ")
-        for t in self.transactions:
-            print("-", t)

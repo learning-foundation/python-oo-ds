@@ -1,4 +1,5 @@
-from account import Account, Customer
+from account import Account
+from customer import Customer
 
 customer1 = Customer('John', 'Oliver', '001002')
 customer2 = Customer('Naty', 'Queen', '990123')
