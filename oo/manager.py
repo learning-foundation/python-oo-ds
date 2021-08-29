@@ -14,3 +14,6 @@ class Manager(Employee):
         else:
             print('access denied')
             return False
+
+    def get_bonus(self):
+        return self._salary * 0.15

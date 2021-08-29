@@ -1,5 +1,6 @@
 from account import Account
 from customer import Customer
+from manager import Manager
 
 customer1 = Customer('John', 'Oliver', '001002')
 customer2 = Customer('Naty', 'Queen', '990123')
@@ -21,3 +22,7 @@ print('Accounts qtd {}'.format(Account.get_accounts_qtd()))
 account1.limit = 10001.0
 print(account1.id)
 print(account2.id)
+
+manager = Manager('Carl', '889889', 1000.0, '123456', 0)
+print(manager.get_bonus())
+print(vars(manager))
