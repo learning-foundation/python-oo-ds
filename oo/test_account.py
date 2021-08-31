@@ -4,6 +4,7 @@ from account_saving import AccountSaving
 from account import Account
 from customer import Customer
 from manager import Manager
+from director import Director
 
 customer1 = Customer('John', 'Oliver', '001002')
 customer2 = Customer('Naty', 'Queen', '990123')
@@ -50,3 +51,5 @@ aud.execute(ac)
 aud.execute(av)
 
 print('Total balance: {}'.format(aud.total_balance))
+
+e = Director('Rose', '111222', 100.5)
